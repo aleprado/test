@@ -120,6 +120,7 @@ exports.config = {
         },
         options: {
             p: ['4444:4444', '5900:5900'],
+            e: ['VNC_NO_PASSWORD=1'],
             shmSize: '2g',
         },
     },
@@ -145,7 +146,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 6000000
     },
     //
     // =====

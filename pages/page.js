@@ -39,11 +39,6 @@ function Page() {
     browser.window();
   };
   
-  Page.prototype.waitForText = function (text) { // call this function using ""
-    const textToFind = $(`//*[contains(., '${text}')]`);
-    browser.waitUntil(() => textToFind.isDisplayed(), 15000, 'text is not present after 15 sec');
-  };
-  
   browser.addCommand('waitAndClick', function () {
     browser.waitUntil(() => this.isDisplayed(), 4000, 'element is not visible');
     browser.waitUntil(() => this.waitForEnabled(), 4000, 'element is not enabled');
@@ -51,7 +46,7 @@ function Page() {
     browser.waitUntil(() => this.isDisplayedInViewport(), 4000, 'element is not displayed in the view port');
     let flag = true;
     let count = 1;
-    while (flag && count < 10) {
+    while (flag && count < 2) {
       try {
         this.click();
         flag = false;
@@ -61,10 +56,6 @@ function Page() {
         browser.pause(100);
       }
     }
-  }, true);
-  
-  browser.addCommand('waitForDisappear', function () {
-    browser.waitUntil(() => this.isDisplayed() === false, 15000, 'element never disappear');
   }, true);
   
   module.exports = new Page();
