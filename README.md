@@ -11,7 +11,7 @@ npm i
 Run 
 ---
 
-npm tun test
+npm run test
 
 VNC
 ---
